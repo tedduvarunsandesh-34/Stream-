@@ -4,17 +4,17 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Telegram:
-    API_ID = int(env.get("28408609"))
-    API_HASH = str(env.get("d6ddeafb0c189d91b8197ad49103e806"))
-    BOT_TOKEN = str(env.get("8560596492:AAGl745Wqaz5EPDmLyWfsNow1-g0bRzmOBE"))
+    API_ID = int(env.get("API_ID"))
+    API_HASH = env.get("API_HASH")
+    BOT_TOKEN = env.get("BOT_TOKEN")
 
-    OWNER_ID = int(env.get("5665480584"))
+    OWNER_ID = int(env.get("OWNER_ID"))
     WORKERS = int(env.get("WORKERS", "6"))
 
-    DATABASE_URL = str(env.get("mongodb+srv://teddugovardhan544_db_user:WVjIA96jQ31net0j@cluster0.kwkkleo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"))
+    DATABASE_URL = env.get("DATABASE_URL")
 
-    UPDATES_CHANNEL = str(env.get('UPDATES_CHANNEL', "Telegram"))
-    SESSION_NAME = str(env.get('SESSION_NAME', 'FileStream'))
+    UPDATES_CHANNEL = env.get('UPDATES_CHANNEL', "Telegram")
+    SESSION_NAME = env.get('SESSION_NAME', 'FileStream')
 
     FORCE_SUB_ID = env.get('FORCE_SUB_ID', None)
     FORCE_SUB = env.get('FORCE_UPDATES_CHANNEL', "false")
@@ -39,13 +39,13 @@ class Telegram:
 
 class Server:
     PORT = int(env.get("PORT", 8080))
-    BIND_ADDRESS = str(env.get("BIND_ADDRESS", "0.0.0.0"))
+    BIND_ADDRESS = env.get("BIND_ADDRESS", "0.0.0.0")
     PING_INTERVAL = int(env.get("PING_INTERVAL", "1200"))
 
     HAS_SSL = str(env.get("HAS_SSL", "0").lower()) in ("1", "true", "t", "yes", "y")
     NO_PORT = str(env.get("NO_PORT", "0").lower()) in ("1", "true", "t", "yes", "y")
 
-    FQDN = str(env.get("FQDN", BIND_ADDRESS))
+    FQDN = env.get("FQDN", BIND_ADDRESS)
 
     URL = "http{}://{}{}/".format(
         "s" if HAS_SSL else "",
